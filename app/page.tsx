@@ -69,7 +69,9 @@ function PageContent() {
         }`}
       >
         <div className="flex justify-center items-start w-full">
-          <h1 className="text-orange-300 text-[40px]">Hula</h1>
+          <h1 className="text-[#e7c66a] opacity-80 text-[min(200px,30vw)] font-['DynaPuff']">
+            Hula
+          </h1>
         </div>
       </div>
     </div>
