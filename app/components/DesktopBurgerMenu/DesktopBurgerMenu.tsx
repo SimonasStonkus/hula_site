@@ -1,15 +1,16 @@
 import Link from "next/link";
 import "../BurgerMenu/burgerMenu.css";
-import { useSearchParams } from "next/navigation";
 import { InstagramLogo, TwitterLogo, DiscordLogo } from "@phosphor-icons/react";
+
 export default function DesktopBurgerMenu({
   desktopMenuOpen,
   setDesktopMenuOpen,
+  selectedItem,
 }: {
   desktopMenuOpen: boolean;
   setDesktopMenuOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  selectedItem: string | null;
 }) {
-  const searchParams = useSearchParams();
   return (
     <>
       {desktopMenuOpen ? (
@@ -53,7 +54,7 @@ export default function DesktopBurgerMenu({
           <Link
             id="hula"
             className={`menu-item px-2 ${
-              searchParams.get("item") === "hula" || !searchParams.get("item")
+              selectedItem === "hula" || !selectedItem
                 ? "text-orange-200"
                 : "text-[#b8b7ad]"
             }`}
@@ -64,9 +65,7 @@ export default function DesktopBurgerMenu({
           <Link
             id="game"
             className={`menu-item px-2 ${
-              searchParams.get("item") === "game"
-                ? "text-orange-200"
-                : "text-[#b8b7ad]"
+              selectedItem === "game" ? "text-orange-200" : "text-[#b8b7ad]"
             }`}
             href="/?item=game"
           >
@@ -75,9 +74,7 @@ export default function DesktopBurgerMenu({
           <Link
             id="cast"
             className={`menu-item px-2 ${
-              searchParams.get("item") === "cast"
-                ? "text-orange-200"
-                : "text-[#b8b7ad]"
+              selectedItem === "cast" ? "text-orange-200" : "text-[#b8b7ad]"
             }`}
             href="/?item=cast"
           >
@@ -86,9 +83,7 @@ export default function DesktopBurgerMenu({
           <Link
             id="studio"
             className={`menu-item px-2 ${
-              searchParams.get("item") === "studio"
-                ? "text-orange-200"
-                : "text-[#b8b7ad]"
+              selectedItem === "studio" ? "text-orange-200" : "text-[#b8b7ad]"
             }`}
             href="/?item=studio"
           >

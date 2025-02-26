@@ -1,16 +1,16 @@
 import "./burgerMenu.css";
 import Link from "next/link";
 import { push as Menu } from "react-burger-menu";
-import { useSearchParams } from "next/navigation";
+
 export default function BurgerMenu({
   menuOpen,
   setMenuOpen,
+  selectedItem,
 }: {
   menuOpen: boolean;
   setMenuOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  selectedItem: string | null;
 }) {
-  const searchParams = useSearchParams();
-  console.log(searchParams.get("item"));
   return (
     <Menu
       pageWrapId="page-wrap"
@@ -29,9 +29,7 @@ export default function BurgerMenu({
       <Link
         id="hula"
         className={`menu-item ${
-          searchParams.get("item") === "hula" || !searchParams.get("item")
-            ? "text-orange-200"
-            : ""
+          selectedItem === "hula" || !selectedItem ? "text-orange-200" : ""
         }`}
         href="/?item=hula"
       >
@@ -40,7 +38,7 @@ export default function BurgerMenu({
       <Link
         id="game"
         className={`menu-item ${
-          searchParams.get("item") === "game" ? "text-orange-200" : ""
+          selectedItem === "game" ? "text-orange-200" : ""
         }`}
         href="/?item=game"
       >
@@ -49,7 +47,7 @@ export default function BurgerMenu({
       <Link
         id="cast"
         className={`menu-item ${
-          searchParams.get("item") === "cast" ? "text-orange-200" : ""
+          selectedItem === "cast" ? "text-orange-200" : ""
         }`}
         href="/?item=cast"
       >
@@ -58,7 +56,7 @@ export default function BurgerMenu({
       <Link
         id="studio"
         className={`menu-item ${
-          searchParams.get("item") === "studio" ? "text-orange-200" : ""
+          selectedItem === "studio" ? "text-orange-200" : ""
         }`}
         href="/?item=studio"
       >

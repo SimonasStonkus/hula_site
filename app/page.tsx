@@ -1,16 +1,16 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import BurgerMenu from "./components/BurgerMenu/BurgerMenu";
 import DesktopBurgerMenu from "./components/DesktopBurgerMenu/DesktopBurgerMenu";
 import Link from "next/link";
 import { DiscordLogo, InstagramLogo, TwitterLogo } from "@phosphor-icons/react";
-export default function Home() {
+
+function PageContent() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [desktopMenuOpen, setDesktopMenuOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const searchParams = useSearchParams();
-  console.log(searchParams.get("item"));
 
   useEffect(() => {
     setIsMobile(window.innerWidth < 768);
@@ -29,16 +29,17 @@ export default function Home() {
   return (
     <div
       id="outer-container"
-      className={` bg-[url('/hula.webp')] !duration-[300ms]  bg-cover bg-no-repeat ${
+      className={`bg-[url('/hula.webp')] !duration-[300ms] bg-cover bg-no-repeat ${
         isMobile ? (menuOpen ? "bg-[78%]" : "bg-[80%] w-full") : "bg-[100%]"
       }`}
-      // className={` bg-[url('/hula.webp')]  bg-cover bg-no-repeat transition-all duration-0 delay-0 ${
-      //   menuOpen ? "bg-[-920px]" : "w-full bg-[-850px]"
-      // }`}
     >
       {isMobile ? (
         <>
-          <BurgerMenu menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
+          <BurgerMenu
+            menuOpen={menuOpen}
+            setMenuOpen={setMenuOpen}
+            selectedItem={searchParams.get("item")}
+          />
           <div className="absolute top-0 right-0 p-4">
             <div className="flex gap-2 items-start w-full justify-start">
               <Link href="https://instagram.com">
@@ -57,6 +58,7 @@ export default function Home() {
         <DesktopBurgerMenu
           desktopMenuOpen={desktopMenuOpen}
           setDesktopMenuOpen={setDesktopMenuOpen}
+          selectedItem={searchParams.get("item")}
         />
       )}
 
@@ -71,5 +73,17 @@ export default function Home() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function Home() {
+  return (
+    <Suspense
+      fallback={
+        <div className="bg-[url('/hula.webp')] bg-cover bg-no-repeat bg-[100%]" />
+      }
+    >
+      <PageContent />
+    </Suspense>
   );
 }
