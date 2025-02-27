@@ -5,13 +5,45 @@ import BurgerMenu from "./components/BurgerMenu/BurgerMenu";
 import DesktopBurgerMenu from "./components/DesktopBurgerMenu/DesktopBurgerMenu";
 import Link from "next/link";
 import Image from "next/image";
-import { DiscordLogo, InstagramLogo, TwitterLogo } from "@phosphor-icons/react";
+import {
+  DiscordLogo,
+  HandPointing,
+  InstagramLogo,
+  PaperPlaneTilt,
+  TwitterLogo,
+} from "@phosphor-icons/react";
 
 function PageContent() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [desktopMenuOpen, setDesktopMenuOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [email, setEmail] = useState("");
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState(false);
   const searchParams = useSearchParams();
+
+  const submitEmail = () => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (emailRegex.test(email) && email.length > 0) {
+      console.log("Valid email:", email);
+      setSuccess(true);
+    } else {
+      setError("Please enter a valid email address.");
+      const emailInput = document.getElementById("email-input");
+      if (emailInput) {
+        emailInput.classList.add("motion-preset-shake");
+        setTimeout(() => {
+          emailInput.classList.remove("motion-preset-shake");
+        }, 1000);
+      }
+    }
+  };
+
+  const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setEmail(e.target.value);
+    setSuccess(false);
+    setError("");
+  };
 
   useEffect(() => {
     setIsMobile(window.innerWidth < 768);
@@ -27,6 +59,18 @@ function PageContent() {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Enter") {
+        submitEmail();
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [email]);
   return (
     <div
       id="outer-container"
@@ -65,27 +109,67 @@ function PageContent() {
 
       <div
         id="page-wrap"
-        className={`flex flex-col items-center min-h-screen p-14 ${
-          menuOpen ? "w-[calc(100%-100px)]" : "w-full"
+        className={`flex flex-col items-center min-h-screen ${
+          menuOpen ? "w-[calc(100%-100px)] p-6 pt-10" : "w-full  p-14"
         }`}
       >
-        <div className="flex justify-center items-start w-full">
+        <div className="flex flex-col justify-center items-center w-full">
           <div className="relative">
             <Image
               src="/hula_logo.webp"
               height={466}
               width={466}
               alt="Hula logo"
+              className={`${menuOpen ? "translate-x-3" : "translate-x-6"}`}
             />
             <Link
               href="https://kickstarter.com"
               target="_blank"
               className="absolute bg-transparent aspect-square w-[25%] max-w-[120px] top-[28%] right-[6%] z-10 cursor-pointer"
-            />
+            >
+              {" "}
+              <HandPointing
+                color="#ED684D"
+                weight="duotone"
+                size="32px"
+                className="absolute top-[70%] right-[-30%] origin-bottom-right -rotate-45 duocolor-fill motion-preset-wobble motion-translate-y-in-50 motion-translate-y-out-50 motion-translate-y-loop motion-duration-1000"
+              />
+            </Link>
           </div>
-          {/* <h1 className="text-[#e7c66a] opacity-80 text-[min(200px,30vw)] font-['DynaPuff']">
-            Hula
-          </h1> */}
+          <span className="text-orange-400 font-['DynaPuff']">
+            Talk with Hula!
+          </span>
+          <div
+            className="bg-[rgba(55,58,71,0.6)] h-8 w-64 rounded-md flex flex-row justify-between pl-2 pr-1 !opacity-100"
+            id="email-input"
+          >
+            <input
+              placeholder="Email Address"
+              className={`bg-transparent ${
+                error ? "text-red-400" : "text-[#b8b7ad]"
+              } border-none outline-none w-full max-w-[100%]`}
+              type="email"
+              value={email}
+              onChange={(e) => {
+                handleEmailChange(e);
+              }}
+            />
+            <div
+              onClick={submitEmail}
+              className="p-1 cursor-pointer flex justify-end"
+            >
+              <div className="h-full w-[1px] bg-[#db8776] mr-1" />
+              <PaperPlaneTilt color="#ED684D" weight="fill" size="24px" />
+            </div>
+          </div>
+
+          <span className="text-orange-400 font-['DynaPuff'] text-center max-w-[300px]">
+            We&apos;ll also send you updates as we continue to work on the game.
+          </span>
+          {error ? <span className="text-red-400">{error}</span> : null}
+          {success ? (
+            <span className="text-green-400">Thanks for signing up!</span>
+          ) : null}
         </div>
       </div>
     </div>
