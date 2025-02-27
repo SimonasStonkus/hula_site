@@ -2,9 +2,11 @@
 .bm-burger-button {
   position: fixed;
   width: 54px;
-  height: 48px;
+  height: 54px;
   left: 36px;
   top: 36px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 16px;
 }
 
 /* Color/shape of burger icon bars */
@@ -16,13 +18,13 @@
   height: 6px !important;
 }
 .bm-burger-bars:nth-child(1) {
-  top: 0px !important;
+  top: 2px !important;
 }
 .bm-burger-bars:nth-child(2) {
-  top: 12px !important;
+  top: 14px !important;
 }
 .bm-burger-bars:nth-child(3) {
-  top: 24px !important;
+  top: 26px !important;
 }
 
 /* Color/shape of burger icon bars on hover*/
