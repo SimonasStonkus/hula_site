@@ -23,8 +23,8 @@ export default function DesktopBurgerMenu({
               Close Menu
             </button>
             <span className="absolute cursor-pointer">
-              <span className="bm-cross absolute w-[5px] h-[36px] rotate-45 translate-x-[16px] translate-y-[-3px]" />
-              <span className="bm-cross absolute w-[5px] h-[36px] rotate-[-45deg] translate-x-[16px] translate-y-[-3px]" />
+              <span className="bm-cross absolute w-[5px] h-[40px] rotate-45 translate-x-[24px] translate-y-[5px]" />
+              <span className="bm-cross absolute w-[5px] h-[40px] rotate-[-45deg] translate-x-[24px] translate-y-[5px]" />
             </span>
           </div>
         </div>
@@ -39,14 +39,14 @@ export default function DesktopBurgerMenu({
             Open Menu
           </button>
           <span>
-            <span className="bm-burger-bars absolute h-[20%] left-0 right-0 top-0 cursor-pointer" />
-            <span className="bm-burger-bars absolute h-[20%] left-0 right-0 top-[40%] cursor-pointer" />
-            <span className="bm-burger-bars absolute h-[20%] left-0 right-0 top-[80%] cursor-pointer" />
+            <span className="bm-burger-bars absolute left-0 right-0 cursor-pointer" />
+            <span className="bm-burger-bars absolute left-0 right-0 cursor-pointer" />
+            <span className="bm-burger-bars absolute left-0 right-0 cursor-pointer" />
           </span>
         </div>
       )}
       <div
-        className={`w-32 h-fit p-4 bg-[#373a47] fixed left-[100px] top-[136px] rounded-md ${
+        className={`w-32 h-fit p-4 bg-[#373a47] fixed left-[110px] top-[145px] rounded-md ${
           desktopMenuOpen ? "opacity-100 scale-y-100" : "opacity-0 scale-y-0"
         } transition-all duration-300 transform origin-top`}
       >
@@ -55,7 +55,7 @@ export default function DesktopBurgerMenu({
             id="hula"
             className={`menu-item px-2 ${
               selectedItem === "hula" || !selectedItem
-                ? "text-orange-200"
+                ? "text-[#ED684D]"
                 : "text-[#b8b7ad]"
             }`}
             href="/?item=hula"
@@ -65,7 +65,7 @@ export default function DesktopBurgerMenu({
           <Link
             id="game"
             className={`menu-item px-2 ${
-              selectedItem === "game" ? "text-orange-200" : "text-[#b8b7ad]"
+              selectedItem === "game" ? "text-[#ED684D]" : "text-[#b8b7ad]"
             }`}
             href="/?item=game"
           >
@@ -74,7 +74,7 @@ export default function DesktopBurgerMenu({
           <Link
             id="cast"
             className={`menu-item px-2 ${
-              selectedItem === "cast" ? "text-orange-200" : "text-[#b8b7ad]"
+              selectedItem === "cast" ? "text-[#ED684D]" : "text-[#b8b7ad]"
             }`}
             href="/?item=cast"
           >
@@ -83,7 +83,7 @@ export default function DesktopBurgerMenu({
           <Link
             id="studio"
             className={`menu-item px-2 ${
-              selectedItem === "studio" ? "text-orange-200" : "text-[#b8b7ad]"
+              selectedItem === "studio" ? "text-[#ED684D]" : "text-[#b8b7ad]"
             }`}
             href="/?item=studio"
           >
@@ -91,13 +91,13 @@ export default function DesktopBurgerMenu({
           </Link>
           <div className="flex gap-2 items-start w-full justify-start px-2">
             <Link href="https://instagram.com">
-              <InstagramLogo size="24px" color="#fdba74" />
+              <InstagramLogo size="24px" color="#ED684D" />
             </Link>
             <Link href="https://twitter.com">
-              <TwitterLogo size="24px" color="#fdba74" />
+              <TwitterLogo size="24px" color="#ED684D" />
             </Link>
             <Link href="https://discord.gg/hula">
-              <DiscordLogo size="24px" color="#fdba74" />
+              <DiscordLogo size="24px" color="#ED684D" />
             </Link>
           </div>
         </div>

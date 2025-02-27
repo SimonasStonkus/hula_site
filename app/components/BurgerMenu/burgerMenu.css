@@ -1,17 +1,28 @@
 /* Position and sizing of burger button */
 .bm-burger-button {
   position: fixed;
-  width: 36px;
-  height: 30px;
+  width: 54px;
+  height: 48px;
   left: 36px;
   top: 36px;
 }
 
 /* Color/shape of burger icon bars */
 .bm-burger-bars {
-  background: #fae2c9;
+  background: #ed684d;
+  margin: 10px;
+  box-sizing: border-box;
+  height: 6px !important;
 }
-
+.bm-burger-bars:nth-child(1) {
+  top: 0px !important;
+}
+.bm-burger-bars:nth-child(2) {
+  top: 12px !important;
+}
+.bm-burger-bars:nth-child(3) {
+  top: 24px !important;
+}
 /* Color/shape of burger icon bars on hover*/
 .bm-burger-bars-hover {
   background: #fdba74;

@@ -29,7 +29,7 @@ export default function BurgerMenu({
       <Link
         id="hula"
         className={`menu-item ${
-          selectedItem === "hula" || !selectedItem ? "text-orange-200" : ""
+          selectedItem === "hula" || !selectedItem ? "text-[#ED684D]" : ""
         }`}
         href="/?item=hula"
       >
@@ -38,7 +38,7 @@ export default function BurgerMenu({
       <Link
         id="game"
         className={`menu-item ${
-          selectedItem === "game" ? "text-orange-200" : ""
+          selectedItem === "game" ? "text-[#ED684D]" : ""
         }`}
         href="/?item=game"
       >
@@ -47,7 +47,7 @@ export default function BurgerMenu({
       <Link
         id="cast"
         className={`menu-item ${
-          selectedItem === "cast" ? "text-orange-200" : ""
+          selectedItem === "cast" ? "text-[#ED684D]" : ""
         }`}
         href="/?item=cast"
       >
@@ -56,7 +56,7 @@ export default function BurgerMenu({
       <Link
         id="studio"
         className={`menu-item ${
-          selectedItem === "studio" ? "text-orange-200" : ""
+          selectedItem === "studio" ? "text-[#ED684D]" : ""
         }`}
         href="/?item=studio"
       >
