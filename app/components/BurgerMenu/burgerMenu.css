@@ -9,6 +9,7 @@
 
 /* Color/shape of burger icon bars */
 .bm-burger-bars {
+  animation-duration: 1000ms;
   background: #ed684d;
   margin: 10px;
   box-sizing: border-box;
@@ -23,6 +24,7 @@
 .bm-burger-bars:nth-child(3) {
   top: 24px !important;
 }
+
 /* Color/shape of burger icon bars on hover*/
 .bm-burger-bars-hover {
   background: #fdba74;
@@ -51,7 +53,7 @@ Note: Beware of modifying this element as it can break the animations - you shou
 
 /* General sidebar styles */
 .bm-menu {
-  background: #373a47;
+  background: rgba(55, 58, 71, 0.6);
   padding: 2.5em 0.2em;
   font-size: 1.15em;
 }
