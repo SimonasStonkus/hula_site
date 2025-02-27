@@ -19,13 +19,15 @@ export default function DesktopBurgerMenu({
             className="bm-burger-button desktop z-[1000]"
             onClick={() => setDesktopMenuOpen(!desktopMenuOpen)}
           >
-            <button className="absolute left-0 top-0 z-1 w-full h-full m-0 p-0 border-none text-[0px] bg-transparent cursor-pointer">
-              Close Menu
-            </button>
-            <span className="absolute cursor-pointer">
-              <span className="bm-cross absolute w-[5px] h-[40px] rotate-45 translate-x-[24px] translate-y-[5px]" />
-              <span className="bm-cross absolute w-[5px] h-[40px] rotate-[-45deg] translate-x-[24px] translate-y-[5px]" />
-            </span>
+            <div className="motion-preset-shake">
+              <button className="absolute left-0 top-0 z-1 w-full h-full m-0 p-0 border-none text-[0px] bg-transparent cursor-pointer">
+                Close Menu
+              </button>
+              <span className="absolute cursor-pointer">
+                <span className="bm-cross absolute w-[5px] h-[40px] rotate-45 translate-x-[24px] translate-y-[8px]" />
+                <span className="bm-cross absolute w-[5px] h-[40px] rotate-[-45deg] translate-x-[24px] translate-y-[8px]" />
+              </span>
+            </div>
           </div>
         </div>
       ) : (
@@ -35,20 +37,24 @@ export default function DesktopBurgerMenu({
             setDesktopMenuOpen(!desktopMenuOpen);
           }}
         >
-          <button className="absolute left-0 top-0 z-1 w-full h-full m-0 p-0 border-none text-[0px] bg-transparent cursor-pointer">
-            Open Menu
-          </button>
-          <span>
-            <span className="bm-burger-bars absolute left-0 right-0 cursor-pointer" />
-            <span className="bm-burger-bars absolute left-0 right-0 cursor-pointer" />
-            <span className="bm-burger-bars absolute left-0 right-0 cursor-pointer" />
-          </span>
+          <div className="motion-preset-shake">
+            <button className="absolute left-0 top-0 z-1 w-full h-full m-0 p-0 border-none text-[0px] bg-transparent cursor-pointer">
+              Open Menu
+            </button>
+            <span>
+              <span className="bm-burger-bars absolute left-0 right-0 cursor-pointer" />
+              <span className="bm-burger-bars absolute left-0 right-0 cursor-pointer" />
+              <span className="bm-burger-bars absolute left-0 right-0 cursor-pointer" />
+            </span>
+          </div>
         </div>
       )}
       <div
-        className={`w-32 h-fit p-4 bg-[#373a47] fixed left-[110px] top-[145px] rounded-md ${
-          desktopMenuOpen ? "opacity-100 scale-y-100" : "opacity-0 scale-y-0"
-        } transition-all duration-300 transform origin-top`}
+        className={`w-32 h-fit p-4 bg-[#373a47] fixed left-[100px] top-[158px] rounded-md ${
+          desktopMenuOpen
+            ? "opacity-100 scale-y-100 scale-x-100"
+            : "opacity-0 scale-y-0 scale-x-0 translate-y-[-30px] translate-x-[10px]"
+        } transition-all duration-300 transform origin-top-left`}
       >
         <div className="flex flex-col gap-6">
           <Link
