@@ -12,7 +12,7 @@ export default function DesktopBurgerMenu({
   selectedItem: string | null;
 }) {
   return (
-    <>
+    <div className="z-[1000]">
       <div
         className={`w-[300px] h-[600px] pt-16 bg-[url('/menu_background.webp')] rounded-[50px] bg-cover bg-center bg-no-repeat p-4 fixed left-[100px] top-[158px] ${
           desktopMenuOpen
@@ -88,20 +88,23 @@ export default function DesktopBurgerMenu({
         </div>
       </div>
       {desktopMenuOpen ? (
-        <div>
-          <div onClick={() => setDesktopMenuOpen(!desktopMenuOpen)}>
+        <>
+          <div
+            onClick={() => setDesktopMenuOpen(!desktopMenuOpen)}
+            className="cursor-pointer"
+          >
             <button className="absolute left-0 top-0 z-1 m-0 p-0 border-none text-[0px] bg-transparent cursor-pointer">
               Close Menu
             </button>
-            <span className="absolute cursor-pointer motion-preset-shake">
+            <span className="absolute cursor-pointer motion-preset-shake origin-[234px_110px]">
               <span className="bm-cross absolute w-[20px] h-[90px] !bg-[#ED684D] rounded-full rotate-45 translate-x-[234px] translate-y-[110px]" />
               <span className="bm-cross absolute w-[20px] h-[90px] !bg-[#ED684D] rounded-full rotate-[-45deg] translate-x-[234px] translate-y-[110px]" />
             </span>
           </div>
-        </div>
+        </>
       ) : (
         <div
-          className="bm-burger-button desktop z-[1000]"
+          className="bm-burger-button desktop z-[1000] cursor-pointer"
           onClick={() => {
             setDesktopMenuOpen(!desktopMenuOpen);
           }}
@@ -118,6 +121,6 @@ export default function DesktopBurgerMenu({
           </div>
         </div>
       )}
-    </>
+    </div>
   );
 }
