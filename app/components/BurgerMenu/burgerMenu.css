@@ -1,12 +1,14 @@
 /* Position and sizing of burger button */
 .bm-burger-button {
   position: fixed;
-  width: 54px;
-  height: 54px;
-  left: 36px;
-  top: 36px;
-  background: rgba(0, 0, 0, 0.3);
-  border-radius: 16px;
+  width: 80px;
+  height: 80px;
+  left: 10px;
+  top: 10px;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 32px;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0px 0px 6px 6px rgba(255, 255, 255, 0.4);
 }
 
 /* Color/shape of burger icon bars */
@@ -15,16 +17,39 @@
   background: #ed684d;
   margin: 10px;
   box-sizing: border-box;
-  height: 6px !important;
+  height: 12px !important;
+  width: 60px;
+  transform: translateX(15%);
+  border-radius: 30px;
+  border: 2px solid #ee3612;
+  box-shadow: 0px 2px 8px 0px #b31e01;
 }
+
 .bm-burger-bars:nth-child(1) {
-  top: 2px !important;
+  top: 10px !important;
 }
 .bm-burger-bars:nth-child(2) {
-  top: 14px !important;
+  top: 32px !important;
 }
 .bm-burger-bars:nth-child(3) {
-  top: 26px !important;
+  top: 54px !important;
+}
+
+@media (max-width: 768px) {
+  .bm-burger-bars {
+    height: 12px !important;
+    width: 50px;
+    transform: translateX(7%);
+  }
+  .bm-burger-bars:nth-child(1) {
+    top: 2px !important;
+  }
+  .bm-burger-bars:nth-child(2) {
+    top: 22px !important;
+  }
+  .bm-burger-bars:nth-child(3) {
+    top: 42px !important;
+  }
 }
 
 /* Color/shape of burger icon bars on hover*/
@@ -55,7 +80,10 @@ Note: Beware of modifying this element as it can break the animations - you shou
 
 /* General sidebar styles */
 .bm-menu {
-  background: rgba(55, 58, 71, 0.6);
+  background-image: url("/menu_background.webp");
+  background-size: 600px 100%;
+  background-position: center;
+  /* background: rgba(55, 58, 71, 0.6); */
   padding: 2.5em 0.2em;
   font-size: 1.15em;
 }
@@ -95,6 +123,8 @@ Note: Beware of modifying this element as it can break the animations - you shou
 }
 
 .desktop {
-  top: 100px;
-  left: 100px;
+  top: 110px;
+  left: 190px;
+  width: 100px;
+  height: 100px;
 }

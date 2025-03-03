@@ -29,46 +29,84 @@ export default function BurgerMenu({
           transform: menuOpen ? "translateY(-100%)" : "translateY(0)",
           transitionDuration: "0.3s",
         },
+        bmCross: {
+          background: "#ED684D",
+          height: "35px",
+          width: "8px",
+          borderRadius: "40%",
+        },
+        bmCrossButton: {
+          right: "16px",
+          top: "4px",
+        },
       }}
       className="transition-all"
     >
-      <div className="!flex flex-col gap-6 max-w-[100px]">
+      <div className="relative !flex flex-col gap-4 h-full !items-start !justify-start max-w-[100px] ml-[-5px]">
         <Link
           id="hula"
-          className={`menu-item ${
-            selectedItem === "hula" || !selectedItem ? "text-[#ED684D]" : ""
+          className={`menu-item font-['Jua'] text-[16px] ${
+            selectedItem === "hula" || !selectedItem
+              ? "text-[#ED684D]"
+              : "text-[#B12C0B] hover:text-[#eb9280]"
           }`}
           href="/?item=hula"
         >
-          Hula
+          About Hula
         </Link>
+        <div className="bg-[rgba(94,123,88,0.8)] h-[5px] w-[100%]" />
         <Link
           id="game"
-          className={`menu-item ${
-            selectedItem === "game" ? "text-[#ED684D]" : ""
+          className={`menu-item font-['Jua'] text-[16px] ${
+            selectedItem === "game"
+              ? "text-[#ED684D]"
+              : "text-[#B12C0B] hover:text-[#eb9280]"
           }`}
           href="/?item=game"
         >
-          Game
+          About Game
         </Link>
+        <div className="bg-[rgba(94,123,88,0.8)] h-[5px] w-[100%]" />
         <Link
           id="cast"
-          className={`menu-item ${
-            selectedItem === "cast" ? "text-[#ED684D]" : ""
+          className={`menu-item font-['Jua'] text-[16px] ${
+            selectedItem === "cast"
+              ? "text-[#ED684D]"
+              : "text-[#B12C0B] hover:text-[#eb9280]"
           }`}
           href="/?item=cast"
         >
-          Cast
+          Characters{" "}
         </Link>
+        <div className="bg-[rgba(94,123,88,0.8)] h-[5px] w-[100%]" />
         <Link
           id="studio"
-          className={`menu-item ${
-            selectedItem === "studio" ? "text-[#ED684D]" : ""
+          className={`menu-item font-['Jua'] text-[16px] ${
+            selectedItem === "studio" ? "text-[#ED684D]" : "text-[#B12C0B]"
           }`}
           href="/?item=studio"
         >
-          Studio
+          Your Studios
         </Link>
+        <div className="bg-[rgba(94,123,88,0.8)] h-[5px] w-[100%]" />
+        {/* <div className="flex gap-2 items-start w-full justify-center px-2">
+            <Link href="https://instagram.com">
+              <InstagramLogo size="60px" color="#ED684D" />
+            </Link>
+
+            <Link href="https://discord.gg/hula">
+              <DiscordLogo size="60px" color="#ED684D" />
+            </Link>
+            <Link href="https://twitter.com">
+              <Image
+                src="/kickstarter_logo.webp"
+                height={60}
+                width={60}
+                quality={100}
+                alt="kickstarter logo"
+              />
+            </Link>
+          </div> */}
       </div>
     </Menu>
   );
