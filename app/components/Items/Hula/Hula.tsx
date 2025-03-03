@@ -42,7 +42,7 @@ export default function Hula() {
   }, [email]);
   return (
     <div className="flex flex-col items-center motion-preset-pop">
-      <span className="text-orange-400 font-['DynaPuff'] text-xl">
+      <span className="text-orange-400 font-['Jua'] text-xl">
         Talk with Hula!
       </span>
       <div
@@ -68,7 +68,7 @@ export default function Hula() {
           <PaperPlaneTilt color="#ED684D" weight="fill" size="24px" />
         </div>
       </div>
-      <span className="text-orange-400 font-['DynaPuff'] text-center max-w-[300px]">
+      <span className="text-orange-400 font-['Jua'] text-center max-w-[300px]">
         We&apos;ll also send you updates as we continue to work on the game.
       </span>
       {error ? <span className="text-red-400 text-center">{error}</span> : null}

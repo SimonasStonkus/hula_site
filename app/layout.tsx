@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
-import { DynaPuff } from "next/font/google";
+import { Jua } from "next/font/google";
 import "./globals.css";
 
-const dynaPuff = DynaPuff({
-  variable: "--font-dyna-puff",
+const jua = Jua({
+  variable: "--font-jua",
   subsets: ["latin"],
+  weight: "400",
 });
 
 export const metadata: Metadata = {
@@ -19,7 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={` ${dynaPuff.variable} antialiased`}>{children}</body>
+      <body className={` ${jua.variable} antialiased`}>{children}</body>
     </html>
   );
 }

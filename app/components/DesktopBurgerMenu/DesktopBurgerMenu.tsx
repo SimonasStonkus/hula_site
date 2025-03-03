@@ -1,7 +1,7 @@
 import Link from "next/link";
 import "../BurgerMenu/burgerMenu.css";
-import { InstagramLogo, TwitterLogo, DiscordLogo } from "@phosphor-icons/react";
-
+import { InstagramLogo, DiscordLogo } from "@phosphor-icons/react";
+import Image from "next/image";
 export default function DesktopBurgerMenu({
   desktopMenuOpen,
   setDesktopMenuOpen,
@@ -13,21 +13,90 @@ export default function DesktopBurgerMenu({
 }) {
   return (
     <>
+      <div
+        className={`w-[300px] h-[600px] pt-16 bg-[url('/menu_background.webp')] rounded-[50px] bg-cover bg-center bg-no-repeat p-4 fixed left-[100px] top-[158px] ${
+          desktopMenuOpen
+            ? "opacity-100 scale-y-100 scale-x-100"
+            : "opacity-0 scale-y-0 scale-x-0 translate-y-[-30px] translate-x-[10px]"
+        } transition-all duration-300 transform origin-[40%_5%]`}
+      >
+        <div className="relative flex flex-col gap-10 items-center">
+          <Link
+            id="hula"
+            className={`menu-item px-2 font-['Jua'] text-[40px] text-center text-nowrap ${
+              selectedItem === "hula" || !selectedItem
+                ? "text-[#ED684D]"
+                : "text-[#B12C0B] hover:text-[#eb9280]"
+            }`}
+            href="/?item=hula"
+          >
+            About Hula
+          </Link>
+          <div className="bg-[rgba(94,123,88,0.8)] h-[10px] w-[60%] my-[-18px]" />
+          <Link
+            id="game"
+            className={`menu-item px-2 font-['Jua'] text-[40px] text-center text-nowrap ${
+              selectedItem === "game"
+                ? "text-[#ED684D]"
+                : "text-[#B12C0B] hover:text-[#eb9280]"
+            }`}
+            href="/?item=game"
+          >
+            About Game
+          </Link>
+          <div className="bg-[rgba(94,123,88,0.8)] h-[10px] w-[60%] my-[-18px]" />
+          <Link
+            id="cast"
+            className={`menu-item px-2 font-['Jua'] text-[40px] text-center  text-nowrap ${
+              selectedItem === "cast"
+                ? "text-[#ED684D]"
+                : "text-[#B12C0B] hover:text-[#eb9280]"
+            }`}
+            href="/?item=cast"
+          >
+            Characters{" "}
+          </Link>
+          <div className="bg-[rgba(94,123,88,0.8)] h-[10px] w-[60%] my-[-18px]" />
+          <Link
+            id="studio"
+            className={`menu-item px-2 font-['Jua'] text-[40px] text-center text-nowrap ${
+              selectedItem === "studio" ? "text-[#ED684D]" : "text-[#B12C0B]"
+            }`}
+            href="/?item=studio"
+          >
+            Your Studios
+          </Link>
+          <div className="bg-[rgba(94,123,88,0.8)] h-[10px] w-[60%] my-[-18px]" />
+          <div className="flex gap-2 items-start w-full justify-center px-2">
+            <Link href="https://instagram.com">
+              <InstagramLogo size="60px" color="#ED684D" />
+            </Link>
+
+            <Link href="https://discord.gg/hula">
+              <DiscordLogo size="60px" color="#ED684D" />
+            </Link>
+            <Link href="https://twitter.com">
+              <Image
+                src="/kickstarter_logo.webp"
+                height={60}
+                width={60}
+                quality={100}
+                alt="kickstarter logo"
+              />
+            </Link>
+          </div>
+        </div>
+      </div>
       {desktopMenuOpen ? (
         <div>
-          <div
-            className="bm-burger-button desktop z-[1000]"
-            onClick={() => setDesktopMenuOpen(!desktopMenuOpen)}
-          >
-            <div className="motion-preset-shake">
-              <button className="absolute left-0 top-0 z-1 w-full h-full m-0 p-0 border-none text-[0px] bg-transparent cursor-pointer">
-                Close Menu
-              </button>
-              <span className="absolute cursor-pointer">
-                <span className="bm-cross absolute w-[5px] h-[40px] rotate-45 translate-x-[24px] translate-y-[8px]" />
-                <span className="bm-cross absolute w-[5px] h-[40px] rotate-[-45deg] translate-x-[24px] translate-y-[8px]" />
-              </span>
-            </div>
+          <div onClick={() => setDesktopMenuOpen(!desktopMenuOpen)}>
+            <button className="absolute left-0 top-0 z-1 m-0 p-0 border-none text-[0px] bg-transparent cursor-pointer">
+              Close Menu
+            </button>
+            <span className="absolute cursor-pointer motion-preset-shake">
+              <span className="bm-cross absolute w-[20px] h-[90px] !bg-[#ED684D] rounded-full rotate-45 translate-x-[234px] translate-y-[110px]" />
+              <span className="bm-cross absolute w-[20px] h-[90px] !bg-[#ED684D] rounded-full rotate-[-45deg] translate-x-[234px] translate-y-[110px]" />
+            </span>
           </div>
         </div>
       ) : (
@@ -49,65 +118,6 @@ export default function DesktopBurgerMenu({
           </div>
         </div>
       )}
-      <div
-        className={`w-32 h-fit p-4 bg-[#373a47] fixed left-[100px] top-[158px] rounded-md ${
-          desktopMenuOpen
-            ? "opacity-100 scale-y-100 scale-x-100"
-            : "opacity-0 scale-y-0 scale-x-0 translate-y-[-30px] translate-x-[10px]"
-        } transition-all duration-300 transform origin-top-left`}
-      >
-        <div className="flex flex-col gap-6">
-          <Link
-            id="hula"
-            className={`menu-item px-2 ${
-              selectedItem === "hula" || !selectedItem
-                ? "text-[#ED684D]"
-                : "text-[#b8b7ad]"
-            }`}
-            href="/?item=hula"
-          >
-            Hula
-          </Link>
-          <Link
-            id="game"
-            className={`menu-item px-2 ${
-              selectedItem === "game" ? "text-[#ED684D]" : "text-[#b8b7ad]"
-            }`}
-            href="/?item=game"
-          >
-            Game
-          </Link>
-          <Link
-            id="cast"
-            className={`menu-item px-2 ${
-              selectedItem === "cast" ? "text-[#ED684D]" : "text-[#b8b7ad]"
-            }`}
-            href="/?item=cast"
-          >
-            Cast
-          </Link>
-          <Link
-            id="studio"
-            className={`menu-item px-2 ${
-              selectedItem === "studio" ? "text-[#ED684D]" : "text-[#b8b7ad]"
-            }`}
-            href="/?item=studio"
-          >
-            Studio
-          </Link>
-          <div className="flex gap-2 items-start w-full justify-start px-2">
-            <Link href="https://instagram.com">
-              <InstagramLogo size="24px" color="#ED684D" />
-            </Link>
-            <Link href="https://twitter.com">
-              <TwitterLogo size="24px" color="#ED684D" />
-            </Link>
-            <Link href="https://discord.gg/hula">
-              <DiscordLogo size="24px" color="#ED684D" />
-            </Link>
-          </div>
-        </div>
-      </div>
     </>
   );
 }
