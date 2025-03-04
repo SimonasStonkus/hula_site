@@ -12,7 +12,7 @@ export default function DesktopBurgerMenu({
   selectedItem: string | null;
 }) {
   return (
-    <>
+    <div className="z-[1000]">
       <div
         className={`w-[300px] h-[600px] pt-16 bg-[url('/menu_background.webp')] rounded-[50px] bg-cover bg-center bg-no-repeat p-4 fixed left-[100px] top-[158px] ${
           desktopMenuOpen
@@ -20,6 +20,22 @@ export default function DesktopBurgerMenu({
             : "opacity-0 scale-y-0 scale-x-0 translate-y-[-30px] translate-x-[10px]"
         } transition-all duration-300 transform origin-[40%_5%]`}
       >
+        <Image
+          className={`absolute left-0 ${
+            selectedItem === "hula" || !selectedItem
+              ? "top-[25px]"
+              : selectedItem === "game"
+              ? "top-[140px]"
+              : selectedItem === "cast"
+              ? "top-[250px]"
+              : "top-[365px]"
+          } `}
+          src="/select.webp"
+          height={149.5}
+          width={338}
+          alt="select"
+        />
+
         <div className="relative flex flex-col gap-10 items-center">
           <Link
             id="hula"
@@ -35,7 +51,7 @@ export default function DesktopBurgerMenu({
           <div className="bg-[rgba(94,123,88,0.8)] h-[10px] w-[60%] my-[-18px]" />
           <Link
             id="game"
-            className={`menu-item px-2 font-['Jua'] text-[40px] text-center text-nowrap ${
+            className={`menu-item px-2 font-['Jua'] text-[40px] text-center text-nowrap relative ${
               selectedItem === "game"
                 ? "text-[#ED684D]"
                 : "text-[#B12C0B] hover:text-[#eb9280]"
@@ -60,7 +76,9 @@ export default function DesktopBurgerMenu({
           <Link
             id="studio"
             className={`menu-item px-2 font-['Jua'] text-[40px] text-center text-nowrap ${
-              selectedItem === "studio" ? "text-[#ED684D]" : "text-[#B12C0B]"
+              selectedItem === "studio"
+                ? "text-[#ED684D]"
+                : "text-[#B12C0B] hover:text-[#eb9280]"
             }`}
             href="/?item=studio"
           >
@@ -68,14 +86,14 @@ export default function DesktopBurgerMenu({
           </Link>
           <div className="bg-[rgba(94,123,88,0.8)] h-[10px] w-[60%] my-[-18px]" />
           <div className="flex gap-2 items-start w-full justify-center px-2">
-            <Link href="https://instagram.com">
+            <Link href="https://instagram.com" target="_blank">
               <InstagramLogo size="60px" color="#ED684D" />
             </Link>
 
-            <Link href="https://discord.gg/hula">
+            <Link href="https://discord.gg/hula" target="_blank">
               <DiscordLogo size="60px" color="#ED684D" />
             </Link>
-            <Link href="https://twitter.com">
+            <Link href="https://twitter.com" target="_blank">
               <Image
                 src="/kickstarter_logo.webp"
                 height={60}
@@ -88,20 +106,23 @@ export default function DesktopBurgerMenu({
         </div>
       </div>
       {desktopMenuOpen ? (
-        <div>
-          <div onClick={() => setDesktopMenuOpen(!desktopMenuOpen)}>
+        <>
+          <div
+            onClick={() => setDesktopMenuOpen(!desktopMenuOpen)}
+            className="cursor-pointer"
+          >
             <button className="absolute left-0 top-0 z-1 m-0 p-0 border-none text-[0px] bg-transparent cursor-pointer">
               Close Menu
             </button>
-            <span className="absolute cursor-pointer motion-preset-shake">
+            <span className="absolute cursor-pointer motion-preset-shake origin-[234px_110px]">
               <span className="bm-cross absolute w-[20px] h-[90px] !bg-[#ED684D] rounded-full rotate-45 translate-x-[234px] translate-y-[110px]" />
               <span className="bm-cross absolute w-[20px] h-[90px] !bg-[#ED684D] rounded-full rotate-[-45deg] translate-x-[234px] translate-y-[110px]" />
             </span>
           </div>
-        </div>
+        </>
       ) : (
         <div
-          className="bm-burger-button desktop z-[1000]"
+          className="bm-burger-button desktop z-[1000] cursor-pointer"
           onClick={() => {
             setDesktopMenuOpen(!desktopMenuOpen);
           }}
@@ -118,6 +139,6 @@ export default function DesktopBurgerMenu({
           </div>
         </div>
       )}
-    </>
+    </div>
   );
 }

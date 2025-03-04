@@ -35,7 +35,7 @@
   top: 54px !important;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1200px) {
   .bm-burger-bars {
     height: 12px !important;
     width: 50px;
