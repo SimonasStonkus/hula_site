@@ -1,0 +1,17 @@
+.embla {
+  overflow: hidden;
+  max-width: 500px;
+}
+
+.embla__container {
+  display: flex;
+}
+
+.embla__slide {
+  display: flex;
+  flex: 0 0 100%;
+  justify-content: center;
+  min-width: 0;
+  max-width: 500px;
+  padding-top: 80px;
+}

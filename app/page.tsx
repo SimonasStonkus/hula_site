@@ -36,7 +36,7 @@ function PageContent() {
   return (
     <div
       id="outer-container"
-      className={`bg-[url('/hula_background.webp')] !duration-[300ms] bg-cover bg-no-repeat z-[500] ${
+      className={`bg-[url('/hula_background.webp')] !duration-[300ms] bg-cover bg-no-repeat z-[500] overflow-x-hidden ${
         isMobile ? (menuOpen ? "bg-[78%]" : "bg-[80%] w-full") : "bg-[100%]"
       }`}
     >
@@ -81,7 +81,9 @@ function PageContent() {
             <Hula menuOpen={menuOpen} />
           ) : null}
           {searchParams.get("item") === "game" ? <Game /> : null}
-          {searchParams.get("item") === "cast" ? <Cast /> : null}
+          {searchParams.get("item") === "cast" ? (
+            <Cast menuOpen={menuOpen} />
+          ) : null}
           {searchParams.get("item") === "studio" ? <Studio /> : null}
         </div>
       </div>
