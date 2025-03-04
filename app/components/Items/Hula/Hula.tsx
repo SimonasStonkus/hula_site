@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { HandPointing, PaperPlaneTilt } from "@phosphor-icons/react";
 import Image from "next/image";
 import Link from "next/link";
-export default function Hula({ menuOpen }: { menuOpen: boolean }) {
+export default function Hula() {
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
   const [success, setSuccess] = useState(false);
@@ -44,24 +44,18 @@ export default function Hula({ menuOpen }: { menuOpen: boolean }) {
   return (
     <div className=" motion-preset-pop">
       <div className="relative">
-        <Image
-          src="/hula_logo.webp"
-          height={466}
-          width={466}
-          alt="Hula logo"
-          className={`${menuOpen ? "translate-x-3" : "translate-x-6"}`}
-        />
+        <Image src="/hula_logo.webp" height={466} width={466} alt="Hula logo" />
         <Link
           href="https://kickstarter.com"
           target="_blank"
-          className="absolute bg-transparent aspect-square w-[25%] max-w-[120px] top-[28%] right-[6%] z-10 cursor-pointer"
+          className="absolute bg-transparent aspect-square w-[24%] max-w-[120px] top-[24%] right-[8.5%] z-10 cursor-pointer"
         >
           {" "}
           <HandPointing
             color="#ED684D"
             weight="duotone"
             size="32px"
-            className="absolute top-[70%] right-[-30%] origin-bottom-right -rotate-45 duocolor-fill motion-preset-wobble motion-translate-y-in-50 motion-translate-y-out-50 motion-translate-y-loop motion-duration-1000"
+            className="absolute top-[50%] right-[-5%] origin-bottom-right -rotate-45 duocolor-fill motion-preset-wobble motion-translate-y-in-50 motion-translate-y-out-50 motion-translate-y-loop motion-duration-1000"
           />
         </Link>
       </div>

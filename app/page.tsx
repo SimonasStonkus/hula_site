@@ -78,7 +78,7 @@ function PageContent() {
       >
         <div className="flex flex-col justify-center items-center w-full h-full relative z-9">
           {searchParams.get("item") === "hula" || !searchParams.get("item") ? (
-            <Hula menuOpen={menuOpen} />
+            <Hula />
           ) : null}
           {searchParams.get("item") === "game" ? <Game /> : null}
           {searchParams.get("item") === "cast" ? (
