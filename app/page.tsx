@@ -76,7 +76,7 @@ function PageContent() {
           menuOpen ? "w-[calc(100%-100px)] p-6 pt-10" : "w-full  p-14"
         }`}
       >
-        <div className="flex flex-col justify-center items-center w-full">
+        <div className="flex flex-col justify-center items-center w-full h-full">
           {searchParams.get("item") === "hula" || !searchParams.get("item") ? (
             <Hula menuOpen={menuOpen} />
           ) : null}

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import "./burgerMenu.css";
 import Link from "next/link";
 import { push as Menu } from "react-burger-menu";
@@ -43,6 +44,7 @@ export default function BurgerMenu({
       className="transition-all"
     >
       <div className="relative !flex flex-col gap-4 h-full !items-start !justify-start max-w-[100px] ml-[-5px]">
+        <Image src="/select.webp" height={115} width={260} alt="select" />
         <Link
           id="hula"
           className={`menu-item font-['Jua'] text-[16px] ${

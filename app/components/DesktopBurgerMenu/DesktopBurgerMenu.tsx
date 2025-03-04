@@ -20,6 +20,22 @@ export default function DesktopBurgerMenu({
             : "opacity-0 scale-y-0 scale-x-0 translate-y-[-30px] translate-x-[10px]"
         } transition-all duration-300 transform origin-[40%_5%]`}
       >
+        <Image
+          className={`absolute left-0 ${
+            selectedItem === "hula" || !selectedItem
+              ? "top-[25px]"
+              : selectedItem === "game"
+              ? "top-[140px]"
+              : selectedItem === "cast"
+              ? "top-[250px]"
+              : "top-[365px]"
+          } `}
+          src="/select.webp"
+          height={149.5}
+          width={338}
+          alt="select"
+        />
+
         <div className="relative flex flex-col gap-10 items-center">
           <Link
             id="hula"
@@ -35,7 +51,7 @@ export default function DesktopBurgerMenu({
           <div className="bg-[rgba(94,123,88,0.8)] h-[10px] w-[60%] my-[-18px]" />
           <Link
             id="game"
-            className={`menu-item px-2 font-['Jua'] text-[40px] text-center text-nowrap ${
+            className={`menu-item px-2 font-['Jua'] text-[40px] text-center text-nowrap relative ${
               selectedItem === "game"
                 ? "text-[#ED684D]"
                 : "text-[#B12C0B] hover:text-[#eb9280]"
