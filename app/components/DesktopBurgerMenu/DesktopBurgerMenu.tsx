@@ -76,7 +76,9 @@ export default function DesktopBurgerMenu({
           <Link
             id="studio"
             className={`menu-item px-2 font-['Jua'] text-[40px] text-center text-nowrap ${
-              selectedItem === "studio" ? "text-[#ED684D]" : "text-[#B12C0B]"
+              selectedItem === "studio"
+                ? "text-[#ED684D]"
+                : "text-[#B12C0B] hover:text-[#eb9280]"
             }`}
             href="/?item=studio"
           >
@@ -84,14 +86,14 @@ export default function DesktopBurgerMenu({
           </Link>
           <div className="bg-[rgba(94,123,88,0.8)] h-[10px] w-[60%] my-[-18px]" />
           <div className="flex gap-2 items-start w-full justify-center px-2">
-            <Link href="https://instagram.com">
+            <Link href="https://instagram.com" target="_blank">
               <InstagramLogo size="60px" color="#ED684D" />
             </Link>
 
-            <Link href="https://discord.gg/hula">
+            <Link href="https://discord.gg/hula" target="_blank">
               <DiscordLogo size="60px" color="#ED684D" />
             </Link>
-            <Link href="https://twitter.com">
+            <Link href="https://twitter.com" target="_blank">
               <Image
                 src="/kickstarter_logo.webp"
                 height={60}

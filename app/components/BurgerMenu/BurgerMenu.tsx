@@ -2,6 +2,7 @@ import Image from "next/image";
 import "./burgerMenu.css";
 import Link from "next/link";
 import { push as Menu } from "react-burger-menu";
+import { DiscordLogo, InstagramLogo } from "@phosphor-icons/react";
 
 export default function BurgerMenu({
   menuOpen,
@@ -44,7 +45,6 @@ export default function BurgerMenu({
       className="transition-all"
     >
       <div className="relative !flex flex-col gap-4 h-full !items-start !justify-start max-w-[100px] ml-[-5px]">
-        <Image src="/select.webp" height={115} width={260} alt="select" />
         <Link
           id="hula"
           className={`menu-item font-['Jua'] text-[16px] ${
@@ -91,24 +91,24 @@ export default function BurgerMenu({
           Your Studios
         </Link>
         <div className="bg-[rgba(94,123,88,0.8)] h-[5px] w-[100%]" />
-        {/* <div className="flex gap-2 items-start w-full justify-center px-2">
-            <Link href="https://instagram.com">
-              <InstagramLogo size="60px" color="#ED684D" />
-            </Link>
+        <div className="flex flex-col gap-2 items-start w-full justify-center px-2 bottom-0 absolute">
+          <Link href="https://instagram.com" target="_blank">
+            <InstagramLogo size="60px" color="#ED684D" />
+          </Link>
 
-            <Link href="https://discord.gg/hula">
-              <DiscordLogo size="60px" color="#ED684D" />
-            </Link>
-            <Link href="https://twitter.com">
-              <Image
-                src="/kickstarter_logo.webp"
-                height={60}
-                width={60}
-                quality={100}
-                alt="kickstarter logo"
-              />
-            </Link>
-          </div> */}
+          <Link href="https://discord.gg/hula" target="_blank">
+            <DiscordLogo size="60px" color="#ED684D" />
+          </Link>
+          <Link href="https://kickstarter.com" target="_blank">
+            <Image
+              src="/kickstarter_logo.webp"
+              height={60}
+              width={60}
+              quality={100}
+              alt="kickstarter logo"
+            />
+          </Link>
+        </div>
       </div>
     </Menu>
   );

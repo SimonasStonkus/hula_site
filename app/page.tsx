@@ -36,11 +36,11 @@ function PageContent() {
   return (
     <div
       id="outer-container"
-      className={`bg-[url('/hula_background.webp')] !duration-[300ms] bg-cover bg-no-repeat z-[500] overflow-x-hidden ${
+      className={`bg-[url('/hula_background.webp')] !duration-[300ms] bg-cover bg-no-repeat z-[500] overflow-x-hidden relative ${
         isMobile ? (menuOpen ? "bg-[78%]" : "bg-[80%] w-full") : "bg-[100%]"
       }`}
     >
-      <div className="z-[1000]">
+      <div className="z-10 relative">
         {isMobile ? (
           <>
             <BurgerMenu
@@ -50,13 +50,13 @@ function PageContent() {
             />
             <div className="absolute top-0 right-0 p-4">
               <div className="flex gap-2 items-start w-full justify-start">
-                <Link href="https://instagram.com">
+                <Link href="https://instagram.com" target="_blank">
                   <InstagramLogo size="24px" color="#ED684D" weight="fill" />
                 </Link>
-                <Link href="https://twitter.com">
+                <Link href="https://twitter.com" target="_blank">
                   <TwitterLogo size="24px" color="#ED684D" weight="fill" />
                 </Link>
-                <Link href="https://discord.gg/hula">
+                <Link href="https://discord.gg/hula" target="_blank">
                   <DiscordLogo size="24px" color="#ED684D" weight="fill" />
                 </Link>
               </div>
@@ -72,11 +72,11 @@ function PageContent() {
       </div>
       <div
         id="page-wrap"
-        className={`flex flex-col items-center min-h-screen z-[200] ${
+        className={`flex flex-col items-center min-h-screen z-[9] ${
           menuOpen ? "w-[calc(100%-100px)] p-6 pt-10" : "w-full  p-14"
         }`}
       >
-        <div className="flex flex-col justify-center items-center w-full h-full">
+        <div className="flex flex-col justify-center items-center w-full h-full relative z-9">
           {searchParams.get("item") === "hula" || !searchParams.get("item") ? (
             <Hula menuOpen={menuOpen} />
           ) : null}
