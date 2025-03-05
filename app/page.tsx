@@ -116,11 +116,7 @@ function PageContent() {
 
 export default function Home() {
   return (
-    <Suspense
-      fallback={
-        <div className="bg-[url('/hula_background.webp')] bg-cover bg-no-repeat bg-[100%]" />
-      }
-    >
+    <Suspense fallback={<div className="" />}>
       <PageContent />
     </Suspense>
   );
