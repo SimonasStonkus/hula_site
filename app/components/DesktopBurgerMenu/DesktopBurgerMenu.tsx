@@ -20,7 +20,7 @@ export default function DesktopBurgerMenu({
             : "opacity-0 scale-y-0 scale-x-0 translate-y-[-30px] translate-x-[10px]"
         } transition-all duration-300 transform origin-[40%_5%]`}
       >
-        <Image
+        {/* <Image
           className={`absolute left-0 ${
             selectedItem === "hula" || !selectedItem
               ? "top-[25px]"
@@ -34,7 +34,7 @@ export default function DesktopBurgerMenu({
           height={149.5}
           width={338}
           alt="select"
-        />
+        /> */}
 
         <div className="relative flex flex-col gap-10 items-center">
           <Link

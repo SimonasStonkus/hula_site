@@ -4,7 +4,7 @@ import { useSearchParams } from "next/navigation";
 import BurgerMenu from "./components/BurgerMenu/BurgerMenu";
 import DesktopBurgerMenu from "./components/DesktopBurgerMenu/DesktopBurgerMenu";
 import Link from "next/link";
-
+import { useRouter } from "next/navigation";
 import { DiscordLogo, InstagramLogo, TwitterLogo } from "@phosphor-icons/react";
 import Hula from "./components/Items/Hula/Hula";
 import Game from "./components/Items/Game/Game";
@@ -17,7 +17,7 @@ function PageContent() {
   const [isMobile, setIsMobile] = useState(false);
 
   const searchParams = useSearchParams();
-
+  const router = useRouter();
   useEffect(() => {
     setIsMobile(window.innerWidth < 1200);
     const handleResize = () => {
@@ -37,6 +37,13 @@ function PageContent() {
     setMenuOpen(false);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchParams.get("item")]);
+
+  useEffect(() => {
+    if (!desktopMenuOpen) {
+      router.push("/");
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [desktopMenuOpen]);
 
   return (
     <div
