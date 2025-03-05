@@ -73,7 +73,7 @@ function PageContent() {
       <div
         id="page-wrap"
         className={`flex flex-col items-center min-h-screen z-[9] ${
-          menuOpen ? "w-[calc(100%-100px)] p-6 pt-10" : "w-full  p-14"
+          menuOpen ? "w-[calc(100%-115px)] p-6 pt-10" : "w-full  p-14"
         }`}
       >
         <div className="flex flex-col justify-center items-center w-full h-full relative z-9">

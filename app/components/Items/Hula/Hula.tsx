@@ -66,7 +66,7 @@ export default function Hula({ menuOpen }: { menuOpen: boolean }) {
         </span>
         <div
           className={`bg-[rgba(255,255,255,0.6)] border-[2px] border-[rgba(255,255,255,0.4)] shadow-[0px_0px_6px_6px_rgba(255,255,255,0.4)] h-12 w-72 ${
-            menuOpen ? "max-w-[calc(95vw-100px)]" : "max-w-72"
+            menuOpen ? "max-w-[calc(95vw-115px)]" : "max-w-72"
           } rounded-md flex flex-row justify-between items-center pl-2 pr-1 !opacity-100 transition-all duration-300`}
           id="email-input"
         >
