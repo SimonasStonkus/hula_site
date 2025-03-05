@@ -45,7 +45,7 @@ export default function Hula({ menuOpen }: { menuOpen: boolean }) {
   return (
     <div className=" motion-preset-pop">
       <div className="relative">
-        <Image src="/hula_logo.webp" height={466} width={466} alt="Hula logo" />
+        <Image src="/hula_logo.webp" height={400} width={435} alt="Hula logo" />
         {searchParams.get("item") === "hula" || !searchParams.get("item") ? (
           <Link
             href="https://kickstarter.com"

@@ -82,7 +82,7 @@ function PageContent() {
       </div>
       <div
         id="page-wrap"
-        className={`flex flex-col items-center min-h-screen z-[9] ${
+        className={`flex flex-col items-center justify-between min-h-screen z-[9] ${
           menuOpen ? "w-[calc(100%-115px)] p-6 pt-10" : "w-full p-14"
         }`}
       >
@@ -97,7 +97,7 @@ function PageContent() {
           {searchParams.get("item") === "studio" ? <Studio /> : null}
         </div>
         {searchParams.get("item") === "hula" || !searchParams.get("item") ? (
-          <div className="flex items-end justify-end w-full">
+          <div className="flex items-end justify-end w-full motion-preset-pop">
             <Image
               src="/backgroundElements/Hula_Shadow_Combined.webp"
               height={250}
