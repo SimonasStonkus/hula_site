@@ -55,7 +55,7 @@ export default function Hula() {
             color="#ED684D"
             weight="duotone"
             size="32px"
-            className="absolute top-[50%] right-[-5%] origin-bottom-right -rotate-45 duocolor-fill motion-preset-wobble motion-translate-y-in-50 motion-translate-y-out-50 motion-translate-y-loop motion-duration-1000"
+            className="absolute bottom-[10%] right-[10%] origin-top-right -rotate-45 duocolor-fill motion-preset-wobble motion-translate-y-in-50 motion-translate-y-out-50 motion-translate-y-loop motion-duration-1000"
           />
         </Link>
       </div>
