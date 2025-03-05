@@ -4,20 +4,20 @@ import { useSearchParams } from "next/navigation";
 import BurgerMenu from "./components/BurgerMenu/BurgerMenu";
 import DesktopBurgerMenu from "./components/DesktopBurgerMenu/DesktopBurgerMenu";
 import Link from "next/link";
-
+import { useRouter } from "next/navigation";
 import { DiscordLogo, InstagramLogo, TwitterLogo } from "@phosphor-icons/react";
 import Hula from "./components/Items/Hula/Hula";
 import Game from "./components/Items/Game/Game";
 import Cast from "./components/Items/Cast/Cast";
 import Studio from "./components/Items/Studio/Studio";
-
+import Image from "next/image";
 function PageContent() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [desktopMenuOpen, setDesktopMenuOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
   const searchParams = useSearchParams();
-
+  const router = useRouter();
   useEffect(() => {
     setIsMobile(window.innerWidth < 1200);
     const handleResize = () => {
@@ -33,12 +33,22 @@ function PageContent() {
     };
   }, []);
 
+  useEffect(() => {
+    setMenuOpen(false);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [searchParams.get("item")]);
+
+  useEffect(() => {
+    if (!desktopMenuOpen) {
+      router.push("/");
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [desktopMenuOpen]);
+
   return (
     <div
       id="outer-container"
-      className={`bg-[url('/hula_background.webp')] !duration-[300ms] bg-cover bg-no-repeat z-[500] overflow-x-hidden relative ${
-        isMobile ? (menuOpen ? "bg-[78%]" : "bg-[80%] w-full") : "bg-[100%]"
-      }`}
+      className={`!duration-[300ms] bg-cover bg-no-repeat z-[500] overflow-hidden relative w-screen h-screen`}
     >
       <div className="z-10 relative">
         {isMobile ? (
@@ -72,13 +82,13 @@ function PageContent() {
       </div>
       <div
         id="page-wrap"
-        className={`flex flex-col items-center min-h-screen z-[9] ${
-          menuOpen ? "w-[calc(100%-100px)] p-6 pt-10" : "w-full  p-14"
+        className={`flex flex-col items-center justify-between min-h-screen z-[9] ${
+          menuOpen ? "w-[calc(100%-115px)] p-6 pt-10" : "w-full p-14"
         }`}
       >
         <div className="flex flex-col justify-center items-center w-full h-full relative z-9">
           {searchParams.get("item") === "hula" || !searchParams.get("item") ? (
-            <Hula />
+            <Hula menuOpen={menuOpen} />
           ) : null}
           {searchParams.get("item") === "game" ? <Game /> : null}
           {searchParams.get("item") === "cast" ? (
@@ -86,6 +96,19 @@ function PageContent() {
           ) : null}
           {searchParams.get("item") === "studio" ? <Studio /> : null}
         </div>
+        {searchParams.get("item") === "hula" || !searchParams.get("item") ? (
+          <div className="flex items-end justify-end w-full motion-preset-pop">
+            <Image
+              src="/backgroundElements/Hula_Shadow_Combined.webp"
+              height={250}
+              width={250}
+              priority
+              quality={100}
+              alt="Hula"
+              className="background !relative"
+            />
+          </div>
+        ) : null}
       </div>
     </div>
   );

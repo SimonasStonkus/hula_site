@@ -20,7 +20,7 @@ export default function DesktopBurgerMenu({
             : "opacity-0 scale-y-0 scale-x-0 translate-y-[-30px] translate-x-[10px]"
         } transition-all duration-300 transform origin-[40%_5%]`}
       >
-        <Image
+        {/* <Image
           className={`absolute left-0 ${
             selectedItem === "hula" || !selectedItem
               ? "top-[25px]"
@@ -34,7 +34,7 @@ export default function DesktopBurgerMenu({
           height={149.5}
           width={338}
           alt="select"
-        />
+        /> */}
 
         <div className="relative flex flex-col gap-10 items-center">
           <Link
@@ -46,7 +46,7 @@ export default function DesktopBurgerMenu({
             }`}
             href="/?item=hula"
           >
-            About Hula
+            Home
           </Link>
           <div className="bg-[rgba(94,123,88,0.8)] h-[10px] w-[60%] my-[-18px]" />
           <Link
@@ -58,7 +58,7 @@ export default function DesktopBurgerMenu({
             }`}
             href="/?item=game"
           >
-            About Game
+            About Hula
           </Link>
           <div className="bg-[rgba(94,123,88,0.8)] h-[10px] w-[60%] my-[-18px]" />
           <Link
@@ -93,7 +93,11 @@ export default function DesktopBurgerMenu({
             <Link href="https://discord.gg/hula" target="_blank">
               <DiscordLogo size="60px" color="#ED684D" />
             </Link>
-            <Link href="https://twitter.com" target="_blank">
+            <Link
+              href="https://twitter.com"
+              target="_blank"
+              className="w-[60px] h-[60px]"
+            >
               <Image
                 src="/kickstarter_logo.webp"
                 height={60}

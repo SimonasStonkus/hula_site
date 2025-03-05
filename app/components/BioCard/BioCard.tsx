@@ -43,14 +43,14 @@ export default function BioCard({ menuOpen }: { menuOpen: boolean }) {
                 menuOpen ? "text-[14px]" : "text-[18px]"
               } text-center text-[#DB2B05] drop-shadow-[0px_4px_4px_rgba(0,0,0,0.25)] transition-all duration-500 ease-in-out`}
             >
-              Likes:
+              Zodiac:
             </span>
             <span
               className={`font-['jua'] ${
                 menuOpen ? "text-[14px]" : "text-[18px]"
-              } text-center  drop-shadow-[0px_4px_4px_rgba(0,0,0,0.25)] transition-all duration-500 ease-in-out`}
+              } text-center text-black drop-shadow-[0px_4px_4px_rgba(0,0,0,0.25)] transition-all duration-500 ease-in-out`}
             >
-              Dislikes:
+              Pet peeve:
             </span>
           </div>
         </div>

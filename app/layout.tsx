@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Jua, Joti_One } from "next/font/google";
 import "./globals.css";
+import Background from "./components/Background/Background";
 
 const jua = Jua({
   variable: "--font-jua",
@@ -25,6 +26,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={` ${jua.variable} ${joti_one.variable} antialiased`}>
+        <Background />
         {children}
       </body>
     </html>

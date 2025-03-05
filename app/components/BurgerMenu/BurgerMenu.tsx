@@ -19,7 +19,7 @@ export default function BurgerMenu({
       outerContainerId="outer-container"
       isOpen={menuOpen}
       onStateChange={(state) => setMenuOpen(state.isOpen)}
-      width={100}
+      width={114}
       id="burger-menu"
       noOverlay
       styles={{
@@ -41,49 +41,58 @@ export default function BurgerMenu({
           right: "16px",
           top: "4px",
         },
+        bmItemList: {
+          paddingRight: "8px",
+          paddingLeft: "8px",
+        },
+        bmMenu: {
+          boxShadow: "0px 0px 16px 1px #000000",
+          backgroundImage: "url(/mobileSideMenu.webp)",
+          backgroundSize: "115px 100%",
+        },
       }}
       className="transition-all"
     >
-      <div className="relative !flex flex-col gap-4 h-full !items-start !justify-start max-w-[100px] ml-[-5px]">
+      <div className="relative !flex flex-col gap-4 h-full !items-start !justify-start max-w-[115px] ml-[-5px]">
         <Link
           id="hula"
-          className={`menu-item font-['Jua'] text-[16px] ${
+          className={`menu-item font-['Jua'] text-[20px] ${
             selectedItem === "hula" || !selectedItem
               ? "text-[#ED684D]"
               : "text-[#B12C0B] hover:text-[#eb9280]"
           }`}
           href="/?item=hula"
         >
-          About Hula
+          Home
         </Link>
         <div className="bg-[rgba(94,123,88,0.8)] h-[5px] w-[100%]" />
         <Link
           id="game"
-          className={`menu-item font-['Jua'] text-[16px] ${
+          className={`menu-item font-['Jua'] text-[20px] ${
             selectedItem === "game"
               ? "text-[#ED684D]"
               : "text-[#B12C0B] hover:text-[#eb9280]"
           }`}
           href="/?item=game"
         >
-          About Game
+          About Hula
         </Link>
         <div className="bg-[rgba(94,123,88,0.8)] h-[5px] w-[100%]" />
         <Link
           id="cast"
-          className={`menu-item font-['Jua'] text-[16px] ${
+          className={`menu-item font-['Jua'] text-[20px] ${
             selectedItem === "cast"
               ? "text-[#ED684D]"
               : "text-[#B12C0B] hover:text-[#eb9280]"
           }`}
           href="/?item=cast"
         >
-          Characters{" "}
+          Meet the cast
         </Link>
         <div className="bg-[rgba(94,123,88,0.8)] h-[5px] w-[100%]" />
         <Link
           id="studio"
-          className={`menu-item font-['Jua'] text-[16px] ${
+          className={`menu-item font-['Jua'] text-[20px] ${
             selectedItem === "studio" ? "text-[#ED684D]" : "text-[#B12C0B]"
           }`}
           href="/?item=studio"
@@ -91,7 +100,7 @@ export default function BurgerMenu({
           Your Studios
         </Link>
         <div className="bg-[rgba(94,123,88,0.8)] h-[5px] w-[100%]" />
-        <div className="flex flex-col gap-2 items-start w-full justify-center px-2 bottom-0 absolute">
+        <div className="flex flex-col gap-2 items-center w-full justify-center px-2 mb-[-20px] bottom-0 absolute">
           <Link href="https://instagram.com" target="_blank">
             <InstagramLogo size="60px" color="#ED684D" />
           </Link>
@@ -99,7 +108,11 @@ export default function BurgerMenu({
           <Link href="https://discord.gg/hula" target="_blank">
             <DiscordLogo size="60px" color="#ED684D" />
           </Link>
-          <Link href="https://kickstarter.com" target="_blank">
+          <Link
+            href="https://kickstarter.com"
+            target="_blank"
+            className="w-[60px] h-[60px]"
+          >
             <Image
               src="/kickstarter_logo.webp"
               height={60}
