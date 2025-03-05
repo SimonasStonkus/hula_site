@@ -93,7 +93,11 @@ export default function DesktopBurgerMenu({
             <Link href="https://discord.gg/hula" target="_blank">
               <DiscordLogo size="60px" color="#ED684D" />
             </Link>
-            <Link href="https://twitter.com" target="_blank">
+            <Link
+              href="https://twitter.com"
+              target="_blank"
+              className="w-[60px] h-[60px]"
+            >
               <Image
                 src="/kickstarter_logo.webp"
                 height={60}
