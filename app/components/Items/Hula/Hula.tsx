@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { HandPointing, PaperPlaneTilt } from "@phosphor-icons/react";
 import Image from "next/image";
 import Link from "next/link";
-export default function Hula() {
+export default function Hula({ menuOpen }: { menuOpen: boolean }) {
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
   const [success, setSuccess] = useState(false);
@@ -65,7 +65,9 @@ export default function Hula() {
           Talk with Hula!
         </span>
         <div
-          className="bg-[rgba(255,255,255,0.6)] border-[2px] border-[rgba(255,255,255,0.4)] shadow-[0px_0px_6px_6px_rgba(255,255,255,0.4)] h-12 w-72 rounded-md flex flex-row justify-between items-center pl-2 pr-1 !opacity-100"
+          className={`bg-[rgba(255,255,255,0.6)] border-[2px] border-[rgba(255,255,255,0.4)] shadow-[0px_0px_6px_6px_rgba(255,255,255,0.4)] h-12 w-72 ${
+            menuOpen ? "max-w-[calc(95vw-100px)]" : "max-w-72"
+          } rounded-md flex flex-row justify-between items-center pl-2 pr-1 !opacity-100 transition-all duration-300`}
           id="email-input"
         >
           <input
