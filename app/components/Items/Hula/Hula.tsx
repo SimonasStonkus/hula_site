@@ -2,11 +2,12 @@ import { useEffect, useState } from "react";
 import { HandPointing, PaperPlaneTilt } from "@phosphor-icons/react";
 import Image from "next/image";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 export default function Hula({ menuOpen }: { menuOpen: boolean }) {
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
   const [success, setSuccess] = useState(false);
-
+  const searchParams = useSearchParams();
   const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(e.target.value);
     setSuccess(false);
@@ -45,25 +46,30 @@ export default function Hula({ menuOpen }: { menuOpen: boolean }) {
     <div className=" motion-preset-pop">
       <div className="relative">
         <Image src="/hula_logo.webp" height={466} width={466} alt="Hula logo" />
-        <Link
-          href="https://kickstarter.com"
-          target="_blank"
-          className="absolute bg-transparent aspect-square w-[24%] max-w-[120px] top-[24%] right-[8.5%] z-10 cursor-pointer"
-        >
-          {" "}
-          <HandPointing
-            color="#ED684D"
-            weight="duotone"
-            size="32px"
-            className="absolute bottom-[10%] right-[10%] origin-top-right -rotate-45 duocolor-fill motion-preset-wobble motion-translate-y-in-50 motion-translate-y-out-50 motion-translate-y-loop motion-duration-1000"
-          />
-        </Link>
+        {searchParams.get("item") === "hula" || !searchParams.get("item") ? (
+          <Link
+            href="https://kickstarter.com"
+            target="_blank"
+            className="absolute bg-transparent aspect-square w-[24%] max-w-[120px] top-[24%] right-[8.5%] z-10 cursor-pointer"
+          >
+            {" "}
+            <HandPointing
+              color="#ED684D"
+              weight="duotone"
+              size="32px"
+              className="absolute bottom-[10%] right-[10%] origin-top-right -rotate-45 duocolor-fill motion-preset-wobble motion-translate-y-in-50 motion-translate-y-out-50 motion-translate-y-loop motion-duration-1000"
+            />
+          </Link>
+        ) : null}
       </div>
 
       <div className="flex flex-col items-center">
-        <span className="text-orange-400 font-['Jua'] text-xl">
-          Talk with Hula!
-        </span>
+        {searchParams.get("item") === "hula" || !searchParams.get("item") ? (
+          <span className="text-orange-400 font-['Jua'] text-xl">
+            Talk with Hula!
+          </span>
+        ) : null}
+
         <div
           className={`bg-[rgba(255,255,255,0.6)] border-[2px] border-[rgba(255,255,255,0.4)] shadow-[0px_0px_6px_6px_rgba(255,255,255,0.4)] h-12 w-72 ${
             menuOpen ? "max-w-[calc(95vw-115px)]" : "max-w-72"
@@ -89,9 +95,12 @@ export default function Hula({ menuOpen }: { menuOpen: boolean }) {
             <PaperPlaneTilt color="#ED684D" weight="fill" size="24px" />
           </div>
         </div>
-        <span className="text-orange-400 font-['Jua'] text-center max-w-[300px]">
-          We&apos;ll also send you updates as we continue to work on the game.
-        </span>
+        {searchParams.get("item") === "hula" || !searchParams.get("item") ? (
+          <span className="text-orange-400 font-['Jua'] text-center max-w-[300px]">
+            We&apos;ll also send you updates as we continue to work on the game.
+          </span>
+        ) : null}
+
         {error ? (
           <span className="text-red-400 text-center">{error}</span>
         ) : null}

@@ -1,12 +1,20 @@
 import { BioCarousel } from "../../BioCarousel/BioCarousel";
+import Hula from "../Hula/Hula";
 
 export default function Cast({ menuOpen }: { menuOpen: boolean }) {
   return (
-    <div className="flex flex-col items-center motion-preset-pop justify-center h-full w-full pt-20 relative z-1">
-      <span className="text-orange-400 font-['Jua'] text-[40px] pb-20">
-        Cast
-      </span>
-      <BioCarousel menuOpen={menuOpen} />
+    <div className="items-center justify-center w-full flex flex-col">
+      <div className="w-full flex items-end md:justify-end justify-center px-0 md:px-16 -mt-8">
+        <div className="w-[150px] h-[150px] z-0">
+          <Hula menuOpen={menuOpen} />
+        </div>
+      </div>
+      <div className="motion-preset-pop flex flex-col justify-center items-center pt-14 relative z-1">
+        <span className="text-orange-400 font-['Jua'] text-[40px] pb-5 -mb-8">
+          Cast
+        </span>
+        <BioCarousel menuOpen={menuOpen} />
+      </div>
     </div>
   );
 }
