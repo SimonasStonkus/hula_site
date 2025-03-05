@@ -33,6 +33,11 @@ function PageContent() {
     };
   }, []);
 
+  useEffect(() => {
+    setMenuOpen(false);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [searchParams.get("item")]);
+
   return (
     <div
       id="outer-container"
