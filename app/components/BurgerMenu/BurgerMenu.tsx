@@ -63,7 +63,7 @@ export default function BurgerMenu({
           }`}
           href="/?item=hula"
         >
-          About Hula
+          Home
         </Link>
         <div className="bg-[rgba(94,123,88,0.8)] h-[5px] w-[100%]" />
         <Link
@@ -75,7 +75,7 @@ export default function BurgerMenu({
           }`}
           href="/?item=game"
         >
-          About Game
+          About Hula
         </Link>
         <div className="bg-[rgba(94,123,88,0.8)] h-[5px] w-[100%]" />
         <Link

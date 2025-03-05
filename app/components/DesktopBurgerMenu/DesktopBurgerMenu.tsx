@@ -46,7 +46,7 @@ export default function DesktopBurgerMenu({
             }`}
             href="/?item=hula"
           >
-            About Hula
+            Home
           </Link>
           <div className="bg-[rgba(94,123,88,0.8)] h-[10px] w-[60%] my-[-18px]" />
           <Link
@@ -58,7 +58,7 @@ export default function DesktopBurgerMenu({
             }`}
             href="/?item=game"
           >
-            About Game
+            About Hula
           </Link>
           <div className="bg-[rgba(94,123,88,0.8)] h-[10px] w-[60%] my-[-18px]" />
           <Link
