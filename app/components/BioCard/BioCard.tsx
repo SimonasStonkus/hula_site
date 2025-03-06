@@ -16,7 +16,7 @@ export default function BioCard({
     >
       <div className="relative w-full h-full p-5">
         <Image
-          src={character?.image || ""}
+          src={character?.profileImage || ""}
           height={menuOpen ? 100 : 150}
           width={menuOpen ? 100 : 150}
           alt={character?.name || ""}
@@ -45,7 +45,7 @@ export default function BioCard({
             } transition-all duration-500 ease-in-out`}
           >
             <span
-              className={`font-['jua'] ${
+              className={`font-['jua'] text-nowrap ${
                 menuOpen ? "text-[14px]" : "text-[18px]"
               } text-center text-[#DB2B05] drop-shadow-[0px_4px_4px_rgba(0,0,0,0.25)] transition-all duration-500 ease-in-out`}
             >

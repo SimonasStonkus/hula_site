@@ -8,15 +8,13 @@ export function BioCarousel({ menuOpen }: { menuOpen: boolean }) {
   return (
     <div className="embla" ref={emblaRef}>
       <div className="embla__container">
-        <div className="embla__slide">
-          <BioCard menuOpen={menuOpen} character={characters[0]} />
-        </div>
-        <div className="embla__slide">
-          <BioCard menuOpen={menuOpen} character={characters[1]} />
-        </div>
-        <div className="embla__slide">
-          <BioCard menuOpen={menuOpen} character={characters[2]} />
-        </div>
+        {characters.map((character) => {
+          return (
+            <div className="embla__slide" key={character.name}>
+              <BioCard menuOpen={menuOpen} character={character} />
+            </div>
+          );
+        })}
       </div>
     </div>
   );

@@ -40,15 +40,21 @@ export default function ClassPicture() {
         />
         <div
           id="Turtle"
-          className="character bg-[url('/cast/hitbox/TurtleHitbox.webp')] w-[197px] h-[348px] translate-x-[165px] translate-y-[186px]"
+          className="character bg-[url('/cast/hitbox/TurtleHitbox.webp')] w-[197px] h-[348px] translate-x-[170px] translate-y-[196px] scale-[110%]"
           onMouseEnter={handleSetHovered}
           onMouseLeave={handleMouseLeave}
           onClick={handleElementClicked}
         />
-
+        <div
+          id="Fox"
+          className="character bg-[url('/cast/hitbox/FoxHitbox.webp')] w-[185px] h-[289px] translate-x-[270px] translate-y-[295px] scale-[110%]"
+          onMouseEnter={handleSetHovered}
+          onMouseLeave={handleMouseLeave}
+          onClick={handleElementClicked}
+        />
         <div
           id="Bear"
-          className="character bg-[url('/cast/hitbox/BearHitbox.webp')] w-[197px] h-[348px] translate-x-[344px] translate-y-[148px]"
+          className="character bg-[url('/cast/hitbox/BearHitbox.webp')] w-[197px] h-[320px] translate-x-[344px] translate-y-[148px]"
           onMouseEnter={handleSetHovered}
           onMouseLeave={handleMouseLeave}
           onClick={handleElementClicked}
@@ -67,13 +73,7 @@ export default function ClassPicture() {
           onMouseLeave={handleMouseLeave}
           onClick={handleElementClicked}
         />
-        <div
-          id="Fox"
-          className="character bg-[url('/cast/hitbox/FoxHitbox.webp')] w-[185px] h-[289px] translate-x-[270px] translate-y-[295px] scale-[110%]"
-          onMouseEnter={handleSetHovered}
-          onMouseLeave={handleMouseLeave}
-          onClick={handleElementClicked}
-        />
+
         <div
           id="Frog"
           className="character bg-[url('/cast/hitbox/FrogHitbox.webp')] w-[123px] h-[199px] translate-x-[405px] translate-y-[355px] scale-[110%]"
