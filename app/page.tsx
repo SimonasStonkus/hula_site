@@ -92,7 +92,7 @@ function PageContent() {
           ) : null}
           {searchParams.get("item") === "game" ? <Game /> : null}
           {searchParams.get("item") === "cast" ? (
-            <Cast menuOpen={menuOpen} />
+            <Cast menuOpen={menuOpen} isMobile={isMobile} />
           ) : null}
           {searchParams.get("item") === "studio" ? <Studio /> : null}
         </div>
@@ -100,8 +100,8 @@ function PageContent() {
           <div className="flex items-end justify-end w-full motion-preset-pop">
             <Image
               src="/backgroundElements/Hula_Shadow_Combined.webp"
-              height={250}
-              width={250}
+              height={350}
+              width={350}
               priority
               quality={100}
               alt="Hula"

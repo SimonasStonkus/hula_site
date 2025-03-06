@@ -6,7 +6,7 @@ export default function BioCard({ menuOpen }: { menuOpen: boolean }) {
     <div
       className={`${
         menuOpen ? "w-[65vw] h-[65vw]" : "w-[300px] h-[300px]"
-      } bg-[#ffface] rounded-[15px] flex flex-col justify-center items-center transition-all duration-500 ease-in-out`}
+      } bg-[url(/card_background.webp)] rounded-[15px] flex flex-col justify-center items-center transition-all duration-500 ease-in-out`}
     >
       <div className="relative w-full h-full p-5">
         <Image

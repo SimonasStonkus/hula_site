@@ -1,7 +1,14 @@
 import { BioCarousel } from "../../BioCarousel/BioCarousel";
+import ClassPicture from "../../ClassPicture/ClassPicture";
 import Hula from "../Hula/Hula";
 
-export default function Cast({ menuOpen }: { menuOpen: boolean }) {
+export default function Cast({
+  menuOpen,
+  isMobile,
+}: {
+  menuOpen: boolean;
+  isMobile: boolean;
+}) {
   return (
     <div className="items-center justify-center w-full flex flex-col">
       <div className="w-full flex items-end md:justify-end justify-center px-0 md:px-16 -mt-8">
@@ -13,7 +20,7 @@ export default function Cast({ menuOpen }: { menuOpen: boolean }) {
         <span className="text-orange-400 font-['Jua'] text-[40px] pb-5 -mb-8">
           Cast
         </span>
-        <BioCarousel menuOpen={menuOpen} />
+        {isMobile ? <BioCarousel menuOpen={menuOpen} /> : <ClassPicture />}
       </div>
     </div>
   );

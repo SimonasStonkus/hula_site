@@ -1,0 +1,8 @@
+.character {
+  position: absolute !important;
+  background-repeat: no-repeat;
+}
+
+.character:hover {
+  filter: saturate(2);
+}

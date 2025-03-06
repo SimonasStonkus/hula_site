@@ -36,4 +36,6 @@ body {
 .background {
   position: absolute;
   pointer-events: none;
+  max-width: 100dvw;
+  max-height: 100dvh;
 }
