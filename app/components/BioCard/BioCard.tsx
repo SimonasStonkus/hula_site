@@ -1,7 +1,13 @@
 import "./BioCard.css";
 import Image from "next/image";
-
-export default function BioCard({ menuOpen }: { menuOpen: boolean }) {
+import { Character } from "../constants/Characters";
+export default function BioCard({
+  menuOpen,
+  character,
+}: {
+  menuOpen: boolean;
+  character: Character | undefined;
+}) {
   return (
     <div
       className={`${
@@ -10,10 +16,10 @@ export default function BioCard({ menuOpen }: { menuOpen: boolean }) {
     >
       <div className="relative w-full h-full p-5">
         <Image
-          src="/cast/huxley.webp"
+          src={character?.image || ""}
           height={menuOpen ? 100 : 150}
           width={menuOpen ? 100 : 150}
-          alt="huxley"
+          alt={character?.name || ""}
           style={{
             background: "white, linear-gradient(red 0 0)bottom left/ 60% 2px,",
           }}
@@ -29,7 +35,7 @@ export default function BioCard({ menuOpen }: { menuOpen: boolean }) {
               menuOpen ? "text-[42px]" : "text-[52px]"
             } text-center text-[#632828] font-outline-1 drop-shadow-lg transition-all duration-500 ease-in-out`}
           >
-            Huxley
+            {character?.name}
           </span>
         </div>
         <div className="w-full flex items-end justify-end">
@@ -43,14 +49,14 @@ export default function BioCard({ menuOpen }: { menuOpen: boolean }) {
                 menuOpen ? "text-[14px]" : "text-[18px]"
               } text-center text-[#DB2B05] drop-shadow-[0px_4px_4px_rgba(0,0,0,0.25)] transition-all duration-500 ease-in-out`}
             >
-              Zodiac:
+              Zodiac: {character?.zodiac}
             </span>
             <span
               className={`font-['jua'] ${
                 menuOpen ? "text-[14px]" : "text-[18px]"
               } text-center text-black drop-shadow-[0px_4px_4px_rgba(0,0,0,0.25)] transition-all duration-500 ease-in-out`}
             >
-              Pet peeve:
+              Pet peeve: {character?.dislikes}
             </span>
           </div>
         </div>
@@ -63,7 +69,7 @@ export default function BioCard({ menuOpen }: { menuOpen: boolean }) {
               menuOpen ? "text-[32px]" : "text-[40px]"
             } text-[#632828]`}
           >
-            Bio
+            Bio: {character?.bio}
           </span>
         </div>
       </div>
