@@ -19,7 +19,7 @@ export default function ClassPicture() {
   return (
     <>
       {hovered !== "" || elementClicked ? (
-        <div className="absolute top-[25%] -right-[40%] z-50">
+        <div className="absolute top-[25%] -right-[40%] z-50 motion-preset-pop">
           <BioCard
             character={characters.find(
               (c) =>
