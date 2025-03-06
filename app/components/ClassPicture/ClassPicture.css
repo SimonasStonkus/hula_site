@@ -1,8 +1,9 @@
 .character {
   position: absolute !important;
   background-repeat: no-repeat;
+  transition: filter 100ms ease-in-out;
 }
 
 .character:hover {
-  filter: saturate(2);
+  filter: saturate(1.7) drop-shadow(0px 0px 10px #ffffff);
 }
